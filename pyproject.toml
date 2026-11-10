@@ -19,6 +19,9 @@ classifiers = [
 ]
 dependencies = []
 
+[project.scripts]
+json-flatten = "json_flatten.__main__:main"
+
 [project.urls]
 Homepage = "https://github.com/Trysac/u267-json-flatten"
 Source = "https://github.com/Trysac/u267-json-flatten"

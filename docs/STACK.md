@@ -1,23 +1,20 @@
 # Stack
 
-## Used
+## Runtime
 
-| Tool | Why |
-|---|---|
-| Python >= 3.10 | Widest supported range that still allows modern typing syntax. |
-| uv | Fast, reproducible environments and builds on Windows and Linux. |
-| hatchling | Simple, standards-based build backend; no setup.py. |
-| ruff | Lint and format in one fast tool. |
-| mypy (strict) | Catches type errors before release; the package ships `py.typed`. |
-| pytest + pytest-cov | De facto standard test runner with branch coverage. |
-| gitleaks | Secret scanning locally and in CI. |
-| GitHub Actions + Dependabot | Thin CI wrapper over the local gates; weekly dependency updates. |
+- Python >= 3.10.
+- Standard library only: `argparse`, `collections.abc`, `csv`, `dataclasses`, `io`, `json`, `logging`, `os`, `sys`, `typing`.
+- No runtime dependencies.
 
-## Discarded
+## Development
 
-| Tool | Why not |
-|---|---|
-| Poetry | Slower, and uv covers the same needs with standard dependency groups. |
-| black + isort + flake8 | Replaced by ruff: one tool instead of three. |
-| tox / nox | The OS matrix lives in CI; locally a single `scripts/check.py` is enough. |
-| Shell scripts for gates | Not portable to Windows; the gates are a stdlib Python script. |
+- `pytest` for the test suite in `tests/test_json_flatten.py`.
+- `py.typed` ships with the package for PEP 561 type information.
+- Source uses `from __future__ import annotations` and full type annotations.
+
+## Considered and discarded
+
+- **pandas / `json_normalize`** — a heavy dependency, and arrays are left as Python lists instead of becoming linked tables, which loses the parent/child relation.
+- **`flatten_json`** (PyPI) — dependency-based, and array elements become `item.0.sku` columns.
+- **Recursive flattening** — deep input would hit the interpreter recursion limit before `max_depth`; the implementation uses an explicit stack instead.
+- **SQL DDL generation / type inference** — out of scope; CSV is the only export.
