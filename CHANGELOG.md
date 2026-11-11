@@ -9,4 +9,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- Added `flatten`, `to_csv`, `Table`, and `FlattenError` to split nested JSON records into relational tables and export CSV.
 - Initial project structure from the factory utility template.

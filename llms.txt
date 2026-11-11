@@ -1,16 +1,15 @@
 # json-flatten
 
-> Flatten nested JSON records into relational tables: dotted columns for objects, child tables with parent keys for arrays, deterministic column order and RFC 4180 CSV output Python package `trysac-json-flatten`, import name `json_flatten`, MIT licensed,
-> Python >= 3.10, no runtime dependencies.
+> Flatten nested JSON records into relational tables: dotted columns for objects, child tables with parent keys for arrays, deterministic column order and RFC 4180 CSV output. Python package `trysac-json-flatten`, import name `json_flatten`, MIT licensed, Python >= 3.10, no runtime dependencies.
 
 ## Docs
 
-- [README](README.md): problem, install, usage example
-- [AGENTS](AGENTS.md): commands, folder map, conventions, limits
+- [README](README.md): problem, install, usage, public API
 - [Architecture](docs/ARCHITECTURE.md): shape of the package and its public API
-- [Testing](docs/TESTING.md): how to run and extend the tests
+- [Testing](docs/TESTING.md): tests that exist and what they cover
+- [Project](docs/PROJECT.md): objective, scope and status
+- [Security](docs/SECURITY.md): threat model and limits
 
 ## Optional
 
-- [Stack](docs/STACK.md): tools used and discarded
-- [Changelog](CHANGELOG.md): release history
+- [Stack](docs/STACK.md): runtime and discarded alternatives
